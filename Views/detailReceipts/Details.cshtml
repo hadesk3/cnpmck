@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.detailReceipt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>detailReceipt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalPriceItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalPriceItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item.nameItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item.nameItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.receipt.idStaff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.receipt.idStaff)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

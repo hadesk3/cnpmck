@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="managePhoneProductModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agency">
+    <Key>
+      <PropertyRef Name="idAgency" />
+    </Key>
+    <Property Name="idAgency" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nameAgency" Type="varchar" MaxLength="50" />
+    <Property Name="phoneNumberA" Type="varchar" MaxLength="50" />
+    <Property Name="addressAgency" Type="varchar" MaxLength="50" />
+    <Property Name="mailAgency" Type="varchar" MaxLength="50" />
+    <Property Name="passAgency" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="idCart" />
+    </Key>
+    <Property Name="idCart" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="orderItem" Type="varchar" MaxLength="8000" />
+    <Property Name="totalPrice" Type="int" />
+    <Property Name="status" Type="varchar" MaxLength="20" />
+    <Property Name="bank" Type="varchar" MaxLength="20" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="nameAgent" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="detailOrder">
+    <Key>
+      <PropertyRef Name="idOrder" />
+      <PropertyRef Name="idItem" />
+    </Key>
+    <Property Name="idOrder" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idItem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="totalPriceItem" Type="int" />
+  </EntityType>
+  <EntityType Name="detailReceipt">
+    <Key>
+      <PropertyRef Name="idReceipt" />
+      <PropertyRef Name="idItem" />
+    </Key>
+    <Property Name="idReceipt" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idItem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nameItem" Type="varchar" MaxLength="50" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="totalPriceItem" Type="int" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="idItem" />
+    </Key>
+    <Property Name="idItem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nameItem" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="int" />
+    <Property Name="numberofInverntory" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idAgency" Type="varchar" MaxLength="50" />
+    <Property Name="paymentMethod" Type="varchar" MaxLength="50" />
+    <Property Name="dateOfCreation" Type="date" />
+    <Property Name="totalPrice" Type="int" />
+    <Property Name="orderStatus" Type="varchar" MaxLength="50" />
+    <Property Name="paymentStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="receipt">
+    <Key>
+      <PropertyRef Name="idReceipt" />
+    </Key>
+    <Property Name="idReceipt" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idStaff" Type="varchar" MaxLength="50" />
+    <Property Name="dateofCreation" Type="date" />
+    <Property Name="totalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="idStaff" />
+    </Key>
+    <Property Name="idStaff" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nameStaff" Type="varchar" MaxLength="50" />
+    <Property Name="phoneNumber" Type="varchar" MaxLength="30" />
+    <Property Name="passStaff" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__detailOrd__idIte__4D94879B">
+    <End Role="item" Type="Self.item" Multiplicity="1" />
+    <End Role="detailOrder" Type="Self.detailOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item">
+        <PropertyRef Name="idItem" />
+      </Principal>
+      <Dependent Role="detailOrder">
+        <PropertyRef Name="idItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detailOrd__idOrd__4CA06362">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="detailOrder" Type="Self.detailOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="idOrder" />
+      </Principal>
+      <Dependent Role="detailOrder">
+        <PropertyRef Name="idOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detailRec__idIte__440B1D61">
+    <End Role="item" Type="Self.item" Multiplicity="1" />
+    <End Role="detailReceipt" Type="Self.detailReceipt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item">
+        <PropertyRef Name="idItem" />
+      </Principal>
+      <Dependent Role="detailReceipt">
+        <PropertyRef Name="idItem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detailRec__idRec__4316F928">
+    <End Role="receipt" Type="Self.receipt" Multiplicity="1" />
+    <End Role="detailReceipt" Type="Self.detailReceipt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="receipt">
+        <PropertyRef Name="idReceipt" />
+      </Principal>
+      <Dependent Role="detailReceipt">
+        <PropertyRef Name="idReceipt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__idAgency__47DBAE45">
+    <End Role="Agency" Type="Self.Agency" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agency">
+        <PropertyRef Name="idAgency" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="idAgency" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__receipt__idStaff__3E52440B">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <End Role="receipt" Type="Self.receipt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="idStaff" />
+      </Principal>
+      <Dependent Role="receipt">
+        <PropertyRef Name="idStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="managePhoneProductModelStoreContainer">
+    <EntitySet Name="Agency" EntityType="Self.Agency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detailOrder" EntityType="Self.detailOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detailReceipt" EntityType="Self.detailReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="receipt" EntityType="Self.receipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__detailOrd__idIte__4D94879B" Association="Self.FK__detailOrd__idIte__4D94879B">
+      <End Role="item" EntitySet="item" />
+      <End Role="detailOrder" EntitySet="detailOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detailOrd__idOrd__4CA06362" Association="Self.FK__detailOrd__idOrd__4CA06362">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="detailOrder" EntitySet="detailOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detailRec__idIte__440B1D61" Association="Self.FK__detailRec__idIte__440B1D61">
+      <End Role="item" EntitySet="item" />
+      <End Role="detailReceipt" EntitySet="detailReceipt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detailRec__idRec__4316F928" Association="Self.FK__detailRec__idRec__4316F928">
+      <End Role="receipt" EntitySet="receipt" />
+      <End Role="detailReceipt" EntitySet="detailReceipt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__idAgency__47DBAE45" Association="Self.FK__Orders__idAgency__47DBAE45">
+      <End Role="Agency" EntitySet="Agency" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__receipt__idStaff__3E52440B" Association="Self.FK__receipt__idStaff__3E52440B">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="receipt" EntitySet="receipt" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

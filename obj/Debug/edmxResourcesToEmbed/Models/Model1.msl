@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="managePhoneProductModelStoreContainer" CdmEntityContainer="managePhoneProductEntities">
+    <EntitySetMapping Name="Agencies">
+      <EntityTypeMapping TypeName="managePhoneProductModel.Agency">
+        <MappingFragment StoreEntitySet="Agency">
+          <ScalarProperty Name="idAgency" ColumnName="idAgency" />
+          <ScalarProperty Name="nameAgency" ColumnName="nameAgency" />
+          <ScalarProperty Name="phoneNumberA" ColumnName="phoneNumberA" />
+          <ScalarProperty Name="addressAgency" ColumnName="addressAgency" />
+          <ScalarProperty Name="mailAgency" ColumnName="mailAgency" />
+          <ScalarProperty Name="passAgency" ColumnName="passAgency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="managePhoneProductModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="nameAgent" ColumnName="nameAgent" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="idCart" ColumnName="idCart" />
+          <ScalarProperty Name="orderItem" ColumnName="orderItem" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detailOrders">
+      <EntityTypeMapping TypeName="managePhoneProductModel.detailOrder">
+        <MappingFragment StoreEntitySet="detailOrder">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="totalPriceItem" ColumnName="totalPriceItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detailReceipts">
+      <EntityTypeMapping TypeName="managePhoneProductModel.detailReceipt">
+        <MappingFragment StoreEntitySet="detailReceipt">
+          <ScalarProperty Name="idReceipt" ColumnName="idReceipt" />
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="nameItem" ColumnName="nameItem" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="totalPriceItem" ColumnName="totalPriceItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="managePhoneProductModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="idItem" ColumnName="idItem" />
+          <ScalarProperty Name="nameItem" ColumnName="nameItem" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="numberofInverntory" ColumnName="numberofInverntory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="managePhoneProductModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idAgency" ColumnName="idAgency" />
+          <ScalarProperty Name="paymentMethod" ColumnName="paymentMethod" />
+          <ScalarProperty Name="dateOfCreation" ColumnName="dateOfCreation" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="orderStatus" ColumnName="orderStatus" />
+          <ScalarProperty Name="paymentStatus" ColumnName="paymentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receipts">
+      <EntityTypeMapping TypeName="managePhoneProductModel.receipt">
+        <MappingFragment StoreEntitySet="receipt">
+          <ScalarProperty Name="idReceipt" ColumnName="idReceipt" />
+          <ScalarProperty Name="idStaff" ColumnName="idStaff" />
+          <ScalarProperty Name="dateofCreation" ColumnName="dateofCreation" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="managePhoneProductModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="idStaff" ColumnName="idStaff" />
+          <ScalarProperty Name="nameStaff" ColumnName="nameStaff" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="passStaff" ColumnName="passStaff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

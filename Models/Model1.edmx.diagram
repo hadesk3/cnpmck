@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48c9bce0d1494fc4b9f05d90a7f17fa2" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="managePhoneProductModel.Agency" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.cart" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.detailOrder" Width="1.5" PointX="10.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.detailReceipt" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.item" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.Order" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.receipt" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="managePhoneProductModel.Staff" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="managePhoneProductModel.FK__Orders__idAgency__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="managePhoneProductModel.FK__detailOrd__idIte__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="managePhoneProductModel.FK__detailOrd__idOrd__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="managePhoneProductModel.FK__detailRec__idIte__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="managePhoneProductModel.FK__detailRec__idRec__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="managePhoneProductModel.FK__receipt__idStaff__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

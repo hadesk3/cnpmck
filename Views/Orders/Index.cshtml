@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateOfCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Agency.nameAgency)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateOfCreation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Agency.nameAgency)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idOrder }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idOrder }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idOrder })
+        </td>
+    </tr>
+}
+
+</table>
